@@ -1,0 +1,78 @@
+<?php
+header("Content-type: text/css");
+include_once('../admin/panel/lib/lib.inc.php');
+$color = traerColor();
+if ($color && $color->num_rows > 0) {
+    // Inicializar un array para almacenar los colores
+    $colores = [];
+
+    // Recorrer los resultados y asignar los colores a un array
+    while ($row = $color->fetch_assoc()) {
+        $colores[] = $row['color']; // Asumiendo que la columna se llama 'color'
+    }
+
+    // Asignar colores a variables (si hay al menos 6 colores)
+    $color1 = #fcfcfc; //principal1
+    $color2 = #d400ff; //principal2
+    $color3 = $colores[2] ?? null; //about1
+    $color4 = $colores[3] ?? null; //about2
+    $color5 = $colores[4] ?? null; //fotos1
+    $color6 = $colores[5] ?? null; //fotos2
+}
+
+// Supongamos que obtienes estos valores de una base de datos o de una configuración
+$primaryColor = "#3498db"; // Color primario
+$secondaryColor = "#2ecc71"; // Color secundario
+?>
+
+body {
+  font-family: "Segoe UI", sans-serif;
+}
+.hero {
+  background: linear-gradient(to right,#fcfcfc , #d400ff);
+  color: white;
+  padding: 100px 0;
+}
+.features i {
+  font-size: 3rem;
+  color: #0d6efd;
+}
+.contacto{
+  background:linear-gradient(to right, #edf0f5, #090116);
+}
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+}
+.footer {
+  background:linear-gradient(to right,#fcfcfc , #d400ff);
+  padding: 40px 0;
+}
+.about{
+  background: linear-gradient(to right,#f8f7f7, #fefbfb);
+}
+.carrusel {
+   background: linear-gradient(to right,#ff0000 , #ff0000);
+}
+.svg-icon {
+  margin-right: 15px; /* Ajusta este valor para cambiar la separación */
+              font-size: 3em; /* Ajusta el tamaño según tus necesidades */
+
+}
+
+#termYcond{
+  font-size: 1.5em; /* Ajusta el tamaño de la fuente según tus necesidades */
+  color: blue; /* Opcional: Cambia el color del texto */
+  text-decoration: none; /* Opcional: Elimina la subrayado del enlace */
+ 
+
+}
+#termParrafo{
+   margin-top : 15px; /* Añade espacio desde arriba */
+}
+
+#owner{
+   font-size: 1.5em; /* Ajusta el tamaño de la fuente según tus necesidades */
+   margin-top : 15px;
+}
+
